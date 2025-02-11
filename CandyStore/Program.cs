@@ -1,16 +1,24 @@
-﻿var isMenuRunning = true;
-var menuMessage = "Press Any Key To Go Back to Menu";
+﻿
+string[] candyNames = { "Rainbow Lollipop", "Cotton Candy Clouds", "Choco-Caramel", "Gummy Bear Bonanza", "Minty Chocolate Truffles", "Jellybean Jamboree", "Fruity Taffy Twists", "Sour Patch Surprise", "Crispy Peanut Butter Cups", "Rocky Candy Crystals" };
+var products = new List<string>();
+SeedData();
+
+var divide = "-------------------------------------";
+
+var isMenuRunning = true;
+
 
 while (isMenuRunning)
 {
     PrintHeader();
 
     var usersChoice = Console.ReadLine().Trim().ToUpper();
+    var menuMessage = "Press Any Key To Go Back to Menu";
 
     switch (usersChoice)
     {
         case "A":
-            AddProduct("User chose A");
+            AddProduct();
             break;
         case "D":
             DeleteProduct("User chose D");
@@ -36,10 +44,13 @@ while (isMenuRunning)
 
 } // end while loop
 
-
-
-
-
+void SeedData()
+{
+    for (int i = 0; i < candyNames.Length; i++)
+    {
+        products.Add(candyNames[i]);
+    }
+}
 
 
 // display menu
@@ -55,9 +66,11 @@ string GetMenu()
 
 
 // methods
-void AddProduct(string message)
+void AddProduct()
 {
-    Console.WriteLine(message);
+    Console.WriteLine("Product name:");
+    var product = Console.ReadLine();
+    products.Add(product);
 }
 
 void DeleteProduct(string message)

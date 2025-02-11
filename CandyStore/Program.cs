@@ -6,9 +6,17 @@ string[] candyNames = { "Rainbow Lollipop", "Cotton Candy Clouds", "Choco-Carame
 // list to store seeded data
 var products = new Dictionary<int, string>();
 //call method to process seed data and store it inside the products list
-SeedData();
 
 var divide = "-------------------------------------";
+
+//SeedData();
+
+//check if the file exists and if yes then read in the data
+if (File.Exists(docPath))
+{
+    //call the method
+    LoadData();
+}
 
 var isMenuRunning = true;
 
@@ -80,7 +88,8 @@ void AddProduct()
     var product = Console.ReadLine();
     //add index so we can access the index of each product
     var index = products.Count(); //So when a product is added we will take the count and added it as its index number
-    products.Add(index, product);
+    //added .Trim() so leading spaces are not added to file
+    products.Add(index, product.Trim());
 }
 
 void DeleteProduct(string message)
@@ -135,6 +144,29 @@ void SaveProducts()
             outputFile.WriteLine($"{product.Key}, {product.Value}");
         }
         Console.WriteLine("Products saved");
+    }
+}
+
+void LoadData()
+{
+    //we use the StreamReader here b/c we are reading the data
+    //we will pass in the filename from the docPath which we well split by the comma
+    using (StreamReader reader = new (docPath))
+    {
+        //this line is what will be returned when each line is read
+        var line = reader.ReadLine();
+        
+
+        //while loop
+        while(line != null)
+        {
+            //pass inside a comma to split the string each time a comma is found and return back into an array by using the .Split method
+            string[] parts = line.Split(",");
+
+            //we need to parse the first element which is our index (or key) to an integer b/c the data coming from the docPath is a string
+            products.Add(int.Parse(parts[0]), parts[1]);
+            line = reader.ReadLine();
+        }
     }
 }
 

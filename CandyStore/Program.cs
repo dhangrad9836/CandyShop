@@ -18,6 +18,19 @@ Console.WriteLine("Today's profit: " + todaysProfit + "$");
 Console.WriteLine("Today's target achieved " + targetAchieved);
 Console.WriteLine(divide);
 Console.WriteLine(menu);
-
-
 Console.ReadLine();
+Console.WriteLine(divide);
+Console.WriteLine(divide);
+
+title = title.ToUpper();
+divide = divide.Insert(0, "##########");
+datetime = datetime.Date;
+daysSinceOpening = int.Parse("2");
+
+Console.WriteLine(title);
+Console.WriteLine(divide);
+Console.WriteLine("Today's date: " + datetime);
+Console.WriteLine("Days since opening: " + daysSinceOpening);
+Console.WriteLine("Today's profit: " + todaysProfit + "$");
+Console.WriteLine("Today's target achieved " + targetAchieved);
+Console.WriteLine(divide);

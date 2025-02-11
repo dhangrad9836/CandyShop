@@ -1,6 +1,11 @@
-﻿
+﻿// docPath to save history of document in a text file
+string docPath = @"C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\history.txt";
+
+//seed data will be processed to alist
 string[] candyNames = { "Rainbow Lollipop", "Cotton Candy Clouds", "Choco-Caramel", "Gummy Bear Bonanza", "Minty Chocolate Truffles", "Jellybean Jamboree", "Fruity Taffy Twists", "Sour Patch Surprise", "Crispy Peanut Butter Cups", "Rocky Candy Crystals" };
+// list to store seeded data
 var products = new List<string>();
+//call method to process seed data and store it inside the products list
 SeedData();
 
 var divide = "-------------------------------------";
@@ -31,6 +36,7 @@ while (isMenuRunning)
             break;
         case "Q":
             menuMessage = "Goodbye"; //will be displayed at bottom of program
+            SaveProducts(); //will save the file to the history txt file
             isMenuRunning = false; //menu will stop running if user selects Q
             break;
         default:
@@ -44,6 +50,7 @@ while (isMenuRunning)
 
 } // end while loop
 
+// method that will process the seed data from the candyNames array and store it inside products list
 void SeedData()
 {
     for (int i = 0; i < candyNames.Length; i++)
@@ -114,6 +121,18 @@ int GetDaysSinceOpening()
     TimeSpan timeDifference = DateTime.Now - openingDate;
 
     return timeDifference.Days;
+}
+
+void SaveProducts()
+{
+    using (StreamWriter outputFile = new StreamWriter(docPath))
+    {
+        foreach (string product in products)
+        {
+            outputFile.WriteLine(product);
+        }
+        Console.WriteLine("Products saved");
+    }
 }
 
 Console.ReadLine();

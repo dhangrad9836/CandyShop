@@ -4,7 +4,11 @@ DateTime datetime = DateTime.Now;
 int daysSinceOpening = 1;
 decimal todaysProfit = 5.5m;
 bool targetAchieved = false;
-string menu = "Choose one option: ";
+string menu = "Choose one option:\n"
+    + 'V' + " to view products\n"
+    + 'A' + " to Add products:\n"
+    + 'D' + " to Delete products:\n"
+    + 'U' + " to Update products:\n";
 
 Console.WriteLine(title);
 Console.WriteLine(divide);
@@ -13,11 +17,7 @@ Console.WriteLine("Days since opening: " + daysSinceOpening);
 Console.WriteLine("Today's profit: " + todaysProfit + "$");
 Console.WriteLine("Today's target achieved " + targetAchieved);
 Console.WriteLine(divide);
-Console.WriteLine("Choose one option: ");
-Console.WriteLine('V' + " to view products");
-Console.WriteLine('A' + " to Add products");
-Console.WriteLine('D' + " to Delete products");
-Console.WriteLine('U' + " to Update products");
+Console.WriteLine(menu);
 
 
 Console.ReadLine();

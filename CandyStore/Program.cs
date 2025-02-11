@@ -4,7 +4,7 @@ string docPath = @"C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\history.
 //seed data will be processed to alist
 string[] candyNames = { "Rainbow Lollipop", "Cotton Candy Clouds", "Choco-Caramel", "Gummy Bear Bonanza", "Minty Chocolate Truffles", "Jellybean Jamboree", "Fruity Taffy Twists", "Sour Patch Surprise", "Crispy Peanut Butter Cups", "Rocky Candy Crystals" };
 // list to store seeded data
-var products = new List<string>();
+var products = new Dictionary<int, string>();
 //call method to process seed data and store it inside the products list
 SeedData();
 
@@ -55,7 +55,8 @@ void SeedData()
 {
     for (int i = 0; i < candyNames.Length; i++)
     {
-        products.Add(candyNames[i]);
+        // dictionary products...we are .Add (index and candyName)
+        products.Add(i, candyNames[i]);
     }
 }
 
@@ -77,7 +78,9 @@ void AddProduct()
 {
     Console.WriteLine("Product name:");
     var product = Console.ReadLine();
-    products.Add(product);
+    //add index so we can access the index of each product
+    var index = products.Count(); //So when a product is added we will take the count and added it as its index number
+    products.Add(index, product);
 }
 
 void DeleteProduct(string message)
@@ -127,9 +130,9 @@ void SaveProducts()
 {
     using (StreamWriter outputFile = new StreamWriter(docPath))
     {
-        foreach (string product in products)
+        foreach (KeyValuePair<int, string> product in products)
         {
-            outputFile.WriteLine(product);
+            outputFile.WriteLine($"{product.Key}, {product.Value}");
         }
         Console.WriteLine("Products saved");
     }

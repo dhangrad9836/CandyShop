@@ -4,11 +4,7 @@ DateTime datetime = DateTime.Now;
 int daysSinceOpening = 1;
 decimal todaysProfit = 5.5m;
 bool targetAchieved = false;
-string menu = "Choose one option:\n"
-    + 'V' + " to view products\n"
-    + 'A' + " to Add products:\n"
-    + 'D' + " to Delete products:\n"
-    + 'U' + " to Update products:\n";
+string menu = GetMenu();
 
 Console.WriteLine(title);
 Console.WriteLine(divide);
@@ -40,6 +36,15 @@ switch (usersChoice)
         break;
 } // end switch statement
 
+// display menu
+string GetMenu()
+{
+     return "Choose one option:\n"
+    + 'V' + " to view products\n"
+    + 'A' + " to Add products:\n"
+    + 'D' + " to Delete products:\n"
+    + 'U' + " to Update products:\n";
+}
 
 // methods
 void AddProduct(string message)

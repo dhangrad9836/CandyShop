@@ -12,29 +12,56 @@ string menu = "Choose one option:\n"
 
 Console.WriteLine(title);
 Console.WriteLine(divide);
-Console.WriteLine("Today's date: " + datetime);
+Console.WriteLine($"Today's date: {datetime}" );
 Console.WriteLine("Days since opening: " + daysSinceOpening);
-Console.WriteLine("Today's profit: " + todaysProfit + "$");
-Console.WriteLine("Today's target achieved " + targetAchieved);
+Console.WriteLine($"Today's profit: {todaysProfit} $");
+Console.WriteLine($"Today's target achieved {targetAchieved}");
 Console.WriteLine(divide);
 Console.WriteLine(menu);
 
 var usersChoice = Console.ReadLine().Trim().ToUpper();
 
-if (usersChoice == "A")
+switch (usersChoice)
 {
-    Console.WriteLine("Entered a");
-} 
-else if(usersChoice == "D")
+    case "A":
+        AddProduct("User chose A");
+        break;
+    case "D":
+        DeleteProduct("User chose D");
+        break;
+    case "V":
+        ViewProduct("User chose V");
+        break;
+    case "U":
+        UpdateProduct("User chose U");
+        break;
+    default:
+        Console.WriteLine("Invalid choice, Please choose one of the above");
+        break;
+} // end switch statement
+
+
+// methods
+void AddProduct(string message)
 {
-    Console.WriteLine("Entered d");
+    Console.WriteLine(message);
 }
-else if (usersChoice == "v")
+
+void DeleteProduct(string message)
 {
-    Console.WriteLine("Entered v");
+    Console.WriteLine(message);
 }
-else if (usersChoice == "U")
+
+void ViewProduct(string message)
 {
-    Console.WriteLine("Entered u");
+    Console.WriteLine(message);
 }
+
+void UpdateProduct(string message)
+{
+    Console.WriteLine(message);
+}
+
+
+
 Console.ReadLine();

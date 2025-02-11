@@ -12,3 +12,4 @@ C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\refint\Can
 C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.pdb
 C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.genruntimeconfig.cache
 C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\ref\CandyStore.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.sourcelink.json

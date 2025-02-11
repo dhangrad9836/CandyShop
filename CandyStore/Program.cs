@@ -1,19 +1,4 @@
-﻿string title = "The Candy Shop";
-string divide = "-------------------------------------";
-DateTime datetime = DateTime.Now;
-int daysSinceOpening = GetDaysSinceOpening();
-decimal todaysProfit = 5.5m;
-bool targetAchieved = false;
-string menu = GetMenu();
-
-Console.WriteLine($@"{title}
-{divide}
-Today's date: {datetime}
-Days since opening: {daysSinceOpening}
-Today's profit: {todaysProfit}
-Today's target achieved {targetAchieved}
-{divide}
-{menu} ");
+﻿PrintHeader();
 
 var usersChoice = Console.ReadLine().Trim().ToUpper();
 
@@ -39,11 +24,11 @@ switch (usersChoice)
 // display menu
 string GetMenu()
 {
-     return "Choose one option:\n"
-    + 'V' + " to view products\n"
-    + 'A' + " to Add products:\n"
-    + 'D' + " to Delete products:\n"
-    + 'U' + " to Update products:\n";
+    return "Choose one option:\n"
+   + 'V' + " to view products\n"
+   + 'A' + " to Add products:\n"
+   + 'D' + " to Delete products:\n"
+   + 'U' + " to Update products:\n";
 }
 
 
@@ -79,3 +64,23 @@ void UpdateProduct(string message)
 
 
 Console.ReadLine();
+
+void PrintHeader()
+{
+    string title = "The Candy Shop";
+    string divide = "-------------------------------------";
+    DateTime datetime = DateTime.Now;
+    int daysSinceOpening = GetDaysSinceOpening();
+    decimal todaysProfit = 5.5m;
+    bool targetAchieved = false;
+    string menu = GetMenu();
+
+    Console.WriteLine($@"{title}
+{divide}
+Today's date: {datetime}
+Days since opening: {daysSinceOpening}
+Today's profit: {todaysProfit}
+Today's target achieved {targetAchieved}
+{divide}
+{menu} ");
+}

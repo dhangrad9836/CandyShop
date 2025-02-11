@@ -1,0 +1,14 @@
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\CandyStore.exe
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\CandyStore.deps.json
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\CandyStore.runtimeconfig.json
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\CandyStore.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\CandyStore.pdb
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.AssemblyInfoInputs.cache
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.AssemblyInfo.cs
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.csproj.CoreCompileInputs.cache
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\refint\CandyStore.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.pdb
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.genruntimeconfig.cache
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\ref\CandyStore.dll

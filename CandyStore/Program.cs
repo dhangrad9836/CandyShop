@@ -1,19 +1,19 @@
 ﻿string title = "The Candy Shop";
 string divide = "-------------------------------------";
 DateTime datetime = DateTime.Now;
-int daysSinceOpening = 1;
+int daysSinceOpening = GetDaysSinceOpening();
 decimal todaysProfit = 5.5m;
 bool targetAchieved = false;
 string menu = GetMenu();
 
-Console.WriteLine(title);
-Console.WriteLine(divide);
-Console.WriteLine($"Today's date: {datetime}" );
-Console.WriteLine("Days since opening: " + daysSinceOpening);
-Console.WriteLine($"Today's profit: {todaysProfit} $");
-Console.WriteLine($"Today's target achieved {targetAchieved}");
-Console.WriteLine(divide);
-Console.WriteLine(menu);
+Console.WriteLine($@"{title}
+{divide}
+Today's date: {datetime}
+Days since opening: {daysSinceOpening}
+Today's profit: {todaysProfit}
+Today's target achieved {targetAchieved}
+{divide}
+{menu} ");
 
 var usersChoice = Console.ReadLine().Trim().ToUpper();
 
@@ -44,6 +44,15 @@ string GetMenu()
     + 'A' + " to Add products:\n"
     + 'D' + " to Delete products:\n"
     + 'U' + " to Update products:\n";
+}
+
+
+int GetDaysSinceOpening()
+{
+    var openingDate = new DateTime(2023, 1, 1);
+    TimeSpan timeDifference = DateTime.Now - openingDate;
+
+    return timeDifference.Days;
 }
 
 // methods

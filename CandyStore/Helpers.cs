@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace CandyStore
 {
-    internal class Helpers
+    internal static class Helpers
     {
-        int GetDaysSinceOpening()
+        //changed from int to internal static so this can be accessed throughout the app
+        internal static int GetDaysSinceOpening()
         {
             var openingDate = new DateTime(2023, 1, 1);
             TimeSpan timeDifference = DateTime.Now - openingDate;

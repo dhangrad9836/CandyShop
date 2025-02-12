@@ -70,7 +70,7 @@ namespace CandyStore
             string title = "The Candy Shop";
             string divide = "-------------------------------------";
             DateTime datetime = DateTime.Now;
-            int daysSinceOpening = GetDaysSinceOpening();
+            int daysSinceOpening = Helpers.GetDaysSinceOpening();
             decimal todaysProfit = 5.5m;
             bool targetAchieved = false;
             string menu = GetMenu();

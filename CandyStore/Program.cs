@@ -18,6 +18,7 @@ if (File.Exists(docPath))
     LoadData();
 }
 
+//LoadData();
 var isMenuRunning = true;
 
 
@@ -137,18 +138,34 @@ int GetDaysSinceOpening()
 
 void SaveProducts()
 {
-    using (StreamWriter outputFile = new StreamWriter(docPath))
+    try
     {
-        foreach (KeyValuePair<int, string> product in products)
+
+        using (StreamWriter outputFile = new StreamWriter(docPath))
         {
-            outputFile.WriteLine($"{product.Key}, {product.Value}");
+            foreach (KeyValuePair<int, string> product in products)
+            {
+                outputFile.WriteLine($"{product.Key}, {product.Value}");
+            }
+            Console.WriteLine("Products saved");
         }
-        Console.WriteLine("Products saved");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("There was an error saving products: " + ex.Message);
+        Console.WriteLine(divide);
     }
 }
 
+
+
+
 void LoadData()
 {
+    //we will add a try/catch block to surround the StreamReader
+    try
+    {   
+
     //we use the StreamReader here b/c we are reading the data
     //we will pass in the filename from the docPath which we well split by the comma
     using (StreamReader reader = new (docPath))
@@ -168,7 +185,13 @@ void LoadData()
             line = reader.ReadLine();
         }
     }
-}
+    } //end try block
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+        Console.WriteLine(divide);
+    }
+} // end LoadData()
 
 Console.ReadLine();
 

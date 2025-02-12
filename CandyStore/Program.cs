@@ -170,7 +170,7 @@ void LoadData()
     //we will pass in the filename from the docPath which we well split by the comma
     using (StreamReader reader = new (docPath))
     {
-        //this line is what will be returned when each line is read
+        //this line which stores the docPath of the filesystem file is what will be returned when each line is read
         var line = reader.ReadLine();
         
 

@@ -1,5 +1,16 @@
-﻿// docPath to save history of document in a text file
-string docPath = @"C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\history.txt";
+﻿using CandyStore;
+
+//create some Product objects
+
+Product product = new Product("Cherry Cake");
+Product product2 = new Product("Caramel Donut");
+Product product3 = new Product("Gummy Bear");
+
+//print out the Product objects
+Console.WriteLine($"{product.Name}, {product2.Name}, {product3.Name}");
+
+
+
 
 //seed data will be processed to alist
 string[] candyNames = { "Rainbow Lollipop", "Cotton Candy Clouds", "Choco-Caramel", "Gummy Bear Bonanza", "Minty Chocolate Truffles", "Jellybean Jamboree", "Fruity Taffy Twists", "Sour Patch Surprise", "Crispy Peanut Butter Cups", "Rocky Candy Crystals" };
@@ -12,7 +23,7 @@ var divide = "-------------------------------------";
 //SeedData();
 
 //check if the file exists and if yes then read in the data
-if (File.Exists(docPath))
+if (File.Exists(Configuration.docPath))
 {
     //call the method
     LoadData();
@@ -141,7 +152,7 @@ void SaveProducts()
     try
     {
 
-        using (StreamWriter outputFile = new StreamWriter(docPath))
+        using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
         {
             foreach (KeyValuePair<int, string> product in products)
             {
@@ -168,7 +179,7 @@ void LoadData()
 
     //we use the StreamReader here b/c we are reading the data
     //we will pass in the filename from the docPath which we well split by the comma
-    using (StreamReader reader = new (docPath))
+    using (StreamReader reader = new (Configuration.docPath))
     {
         //this line which stores the docPath of the filesystem file is what will be returned when each line is read
         var line = reader.ReadLine();

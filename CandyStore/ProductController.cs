@@ -69,7 +69,36 @@ namespace CandyStore
             catch (Exception ex)
             {
                 Console.WriteLine("There was an error saving products: " + ex.Message);
-                Console.WriteLine(divide);
+                Console.WriteLine(UserInterface.divide);
+            }
+        }
+
+        internal void AddProducts(List<string> products)
+        {
+            //Console.WriteLine("Product name:");
+            //var product = Console.ReadLine();
+            try
+            {
+
+                using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
+                {
+                    //foreach (KeyValuePair<int, string> product in products) ..this was b/f
+                    {   foreach (string product in products)
+                        {
+                            //outputFile.WriteLine($"{product.Key}, {product.Value}");
+                            // we changed from product.key to product.Trim() to remove any leading spaces 
+                            //write to the file
+                            outputFile.WriteLine(product.Trim(), true);
+                        }
+                        
+                    }
+                    Console.WriteLine("Products saved");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("There was an error saving products: " + ex.Message);
+                Console.WriteLine(UserInterface.divide);
             }
         }
 

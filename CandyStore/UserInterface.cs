@@ -41,7 +41,7 @@ namespace CandyStore
                         break;
                     case "Q":
                         menuMessage = "Goodbye"; //will be displayed at bottom of program
-                        productsController.SaveProducts(); //will save the file to the history txt file
+                        //productsController.SaveProducts(); //will save the file to the history txt file
                         isMenuRunning = false; //menu will stop running if user selects Q
                         break;
                     default:

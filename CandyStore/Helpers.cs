@@ -8,7 +8,7 @@ namespace CandyStore
 {
     internal static class Helpers
     {
-        //changed from int to internal static so this can be accessed throughout the app
+        //changed from int to internal static so this can be accessed throughout the appU
         internal static int GetDaysSinceOpening()
         {
             var openingDate = new DateTime(2023, 1, 1);

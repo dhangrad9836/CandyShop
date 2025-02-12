@@ -8,11 +8,14 @@
 
         void SeedData()
         {
-            for (int i = 0; i < candyNames.Length; i++)
-            {
-                // dictionary products...we are .Add (index and candyName)
-                products.Add(i, candyNames[i]);
-            }
+            var productsController = new ProductController();
+
+            productsController.AddProducts(candyNames.ToList());
+            //for (int i = 0; i < candyNames.Length; i++)
+            //{
+            //    // dictionary products...we are .Add (index and candyName)
+            //    products.Add(i, candyNames[i]);
+            //}
         }
 
     } // end DataSeed

@@ -12,6 +12,8 @@ namespace CandyStore
 
         internal static void RunMainMenu()
         {
+            //create an instance of the ProductController to access the methods
+            var productsController = new ProductController();
             var isMenuRunning = true;
 
 
@@ -25,20 +27,20 @@ namespace CandyStore
                 switch (usersChoice)
                 {
                     case "A":
-                        AddProduct();
+                        productsController.AddProduct();
                         break;
                     case "D":
-                        DeleteProduct("User chose D");
+                        productsController.DeleteProduct("User chose D");
                         break;
                     case "V":
                         ViewProduct("User chose V");
                         break;
                     case "U":
-                        UpdateProduct("User chose U");
+                        productsController.UpdateProduct("User chose U");
                         break;
                     case "Q":
                         menuMessage = "Goodbye"; //will be displayed at bottom of program
-                        SaveProducts(); //will save the file to the history txt file
+                        productsController.SaveProducts(); //will save the file to the history txt file
                         isMenuRunning = false; //menu will stop running if user selects Q
                         break;
                     default:

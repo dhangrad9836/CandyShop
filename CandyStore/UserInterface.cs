@@ -33,7 +33,8 @@ namespace CandyStore
                         productsController.DeleteProduct("User chose D");
                         break;
                     case "V":
-                        ViewProduct("User chose V");
+                        var products = productsController.GetProducts();
+                        ViewProduct(products);
                         break;
                     case "U":
                         productsController.UpdateProduct("User chose U");
@@ -55,9 +56,13 @@ namespace CandyStore
             } // end while loop
         }
 
-        internal static void ViewProduct(string message)
+        internal static void ViewProduct(List<string> products)
         {
-            Console.WriteLine(message);
+            Console.WriteLine(divide);
+            foreach (var product in products)
+            {
+                Console.WriteLine(product);
+            }
         }
 
         internal static void PrintHeader()

@@ -9,9 +9,9 @@ namespace CandyStore
     internal class ProductController
     {
         //return type of List
-        internal List<string> GetProducts()
+        internal List<Product> GetProducts()
         {
-            var products = new List<string>();
+            var products = new List<Product>();
 
             //we will add a try/catch block to surround the StreamReader
             try
@@ -30,9 +30,15 @@ namespace CandyStore
                     {
                         //pass inside a comma to split the string each time a comma is found and return back into an array by using the .Split method
                         string[] parts = line.Split(",");
+
+                        //create a new Product that is being created from the text file
+                        //pass the id to the Product constructor and Parse it into an integer to the Product constructor
+                        var product = new Product(int.Parse(parts[0]));
+                        product.Name = parts[1];
+                        product.Price = decimal.Parse(parts[2]); //parse into a decimal
                         
                         //add each line thats being read in from the docpath file to the products list
-                        products.Add(line);
+                        products.Add(product);
                         line = reader.ReadLine();
                     }
                 }
@@ -74,7 +80,7 @@ namespace CandyStore
         }
 
         //to add products from the seed data
-        internal void AddProducts(List<string> products)
+        internal void AddProducts(List<Product> products)
         {
             //Console.WriteLine("Product name:");
             //var product = Console.ReadLine();
@@ -84,12 +90,10 @@ namespace CandyStore
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
                 {
                     //foreach (KeyValuePair<int, string> product in products) ..this was b/f
-                    {   foreach (string product in products)
-                        {
-                            //outputFile.WriteLine($"{product.Key}, {product.Value}");
-                            // we changed from product.key to product.Trim() to remove any leading spaces 
+                    {   foreach (var product in products)
+                        {                            
                             //write to the file
-                            outputFile.WriteLine(product.Trim(), true);
+                            outputFile.WriteLine($"{product.Id}, {product.Name}, {product.Price}");
                         }
                         
                     }

@@ -3,12 +3,31 @@
     internal class Product
     {
         //fields
-        internal string Name;
+        private string name;
 
-        // constructor
-        public Product(string name)
+
+        internal string Name
         {
-            this.Name = name;
+            get
+            {
+                return name.ToUpper();
+            }
+
+            set
+            {
+                //check if input is not null or it not empty
+                if (!string.IsNullOrEmpty(value))
+                {
+                    name = value;
+                }
+                else
+                {
+                    //alert to user that input must not be empty
+                    Console.WriteLine("Invalid name, Must be a non-empty value");
+                }
+            }
         }
+
+        
     }
 }

@@ -59,8 +59,8 @@ namespace CandyStore
                 {
                     //foreach (KeyValuePair<int, string> product in products)
                     {
-                        //outputFile.WriteLine($"{product.Key}, {product.Value}");
-                        // we changed from product.key to product.Trim() to remove any leading spaces and added a second argument of true which will prevent the file from being overrided and it will just append to the file
+                        // write to the text file
+                        // we changed from product.key to product.Trim() to remove any leading spaces and added a second argument of true which will prevent the file from being overrided and it will just append to the file, and each time we add a product it moves it to the bottom of file
                         outputFile.WriteLine(product.Trim(), true);
                     }
                     Console.WriteLine("Products saved");
@@ -73,6 +73,7 @@ namespace CandyStore
             }
         }
 
+        //to add products from the seed data
         internal void AddProducts(List<string> products)
         {
             //Console.WriteLine("Product name:");

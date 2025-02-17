@@ -8,9 +8,10 @@ namespace CandyStore
 {
     internal class ProductController
     {
-        //return type of List
+        //return a list of type List<Product> from the stored file in the docpath as soon as it's added to the 
         internal List<Product> GetProducts()
         {
+            //create a new list of type <Product>
             var products = new List<Product>();
 
             //we will add a try/catch block to surround the StreamReader
@@ -53,21 +54,29 @@ namespace CandyStore
 
         } // end GetProducts()
         
-
+        // add an individual product from the user input
         internal void AddProduct()
         {
+            // Call GetProducts method to know how many products we have so serve as our id
+            var id = GetProducts().Count;
+
+            // get a product name
             Console.WriteLine("Product name:");
-            var product = Console.ReadLine();
+            var name = Console.ReadLine();
+
+            // get a product price
+            Console.WriteLine("Product price:");
+            var price = decimal.Parse(Console.ReadLine());
+
             try
             {
-
-                using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
+                // we use a bool of true at the end of the StreamWriter so products added to the file are appended and the file contents are not overwritten from everytime the program starts over
+                using (StreamWriter outputFile = new StreamWriter(Configuration.docPath, true))
                 {
                     //foreach (KeyValuePair<int, string> product in products)
                     {
-                        // write to the text file
-                        // we changed from product.key to product.Trim() to remove any leading spaces and added a second argument of true which will prevent the file from being overrided and it will just append to the file, and each time we add a product it moves it to the bottom of file
-                        outputFile.WriteLine(product.Trim(), true);
+                        // write to the text file from what the user entered from above
+                        outputFile.WriteLine($"{id}, {name}, {price}");
                     }
                     Console.WriteLine("Products saved");
                 }
@@ -77,7 +86,7 @@ namespace CandyStore
                 Console.WriteLine("There was an error saving products: " + ex.Message);
                 Console.WriteLine(UserInterface.divide);
             }
-        }
+        } // end AddProduct()
 
         //to add products from the seed data
         internal void AddProducts(List<Product> products)
@@ -86,13 +95,13 @@ namespace CandyStore
             //var product = Console.ReadLine();
             try
             {
-
+                // open the file from the .docPath
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
                 {
                     //foreach (KeyValuePair<int, string> product in products) ..this was b/f
                     {   foreach (var product in products)
                         {                            
-                            //write to the file
+                            //write to the file from the docPath, each (product: Id, Name, Price)
                             outputFile.WriteLine($"{product.Id}, {product.Name}, {product.Price}");
                         }
                         
@@ -105,7 +114,7 @@ namespace CandyStore
                 Console.WriteLine("There was an error saving products: " + ex.Message);
                 Console.WriteLine(UserInterface.divide);
             }
-        }
+        } //end AddProducts()
 
         internal void DeleteProduct(string message)
         {

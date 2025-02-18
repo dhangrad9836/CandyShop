@@ -11,7 +11,7 @@ namespace CandyStore
         //return a list of type List<Product> from the stored file in the docpath as soon as it's added to the 
         internal List<Product> GetProducts()
         {
-            //create a new list of type <Product>
+            //create a new list of type <Product> ....this we will store the products inside this list of products
             var products = new List<Product>();
 
             //we will add a try/catch block to surround the StreamReader
@@ -88,17 +88,14 @@ namespace CandyStore
             }
         } // end AddProduct()
 
-        //to add products from the seed data
+        //to add the products from the DataSeed class using the AddProducts() method
         internal void AddProducts(List<Product> products)
         {
-            //Console.WriteLine("Product name:");
-            //var product = Console.ReadLine();
             try
             {
                 // open the file from the .docPath
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
                 {
-                    //foreach (KeyValuePair<int, string> product in products) ..this was b/f
                     {   foreach (var product in products)
                         {                            
                             //write to the file from the docPath, each (product: Id, Name, Price)

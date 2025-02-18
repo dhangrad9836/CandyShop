@@ -13,3 +13,10 @@ C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore
 C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.genruntimeconfig.cache
 C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\ref\CandyStore.dll
 C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.sourcelink.json
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\Spectre.Console.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\Spectre.Console.Cli.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\de\Spectre.Console.Cli.resources.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\fr\Spectre.Console.Cli.resources.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\bin\Debug\net8.0\sv\Spectre.Console.Cli.resources.dll
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.csproj.AssemblyReference.cache
+C:\Users\dhang\Desktop\c_repos\CandyStore\CandyStore\obj\Debug\net8.0\CandyStore.csproj.Up2Date

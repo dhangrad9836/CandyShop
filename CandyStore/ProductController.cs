@@ -74,11 +74,11 @@ namespace CandyStore
                 // we use a bool of true at the end of the StreamWriter so products added to the file are appended and the file contents are not overwritten from everytime the program starts over
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath, true))
                 {
-                    // check if the file is empty with .BaseStream.Length == 0
+                    // check if the file is empty with .BaseStream.Length <= 3 ....if the three header names do not exist for the csv file
                     if(outputFile.BaseStream.Length <= 3)
                     {   
                         //If the file is empty
-                        //Write a line that contains the header which are the names of the properties seperated by commas
+                        //Write a line that contains the three header which are the names of the properties seperated by commas
                         outputFile.WriteLine("Id, Name, Price");
                     }
                     //if the file is not empty then write a line which contains the products

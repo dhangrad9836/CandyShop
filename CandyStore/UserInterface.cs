@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CandyStore.Enums;
 
 namespace CandyStore
 {
@@ -21,25 +23,34 @@ namespace CandyStore
             {
                 PrintHeader();
 
-                var usersChoice = Console.ReadLine().Trim().ToUpper();
+                var usersChoice = AnsiConsole.Prompt(
+                    new SelectionPrompt<MainMenuOptions>()
+                    .Title("What would like to do?")
+                    .AddChoices(
+                        MainMenuOptions.ViewProducts,
+                        MainMenuOptions.AddProduct,
+                        MainMenuOptions.UpdateProduct,
+                        MainMenuOptions.DeleteProduct,
+                        MainMenuOptions.QuitProgram)
+                    );
                 var menuMessage = "Press Any Key To Go Back to Menu";
 
                 switch (usersChoice)
                 {
-                    case "A":
+                    case MainMenuOptions.AddProduct:
                         productsController.AddProduct();
                         break;
-                    case "D":
+                    case MainMenuOptions.DeleteProduct:
                         productsController.DeleteProduct("User chose D");
                         break;
-                    case "V":
+                    case MainMenuOptions.ViewProducts:
                         var products = productsController.GetProducts();
                         ViewProduct(products);
                         break;
-                    case "U":
+                    case MainMenuOptions.UpdateProduct:
                         productsController.UpdateProduct("User chose U");
                         break;
-                    case "Q":
+                    case MainMenuOptions.QuitProgram:
                         menuMessage = "Goodbye"; //will be displayed at bottom of program
                         //productsController.SaveProducts(); //will save the file to the history txt file
                         isMenuRunning = false; //menu will stop running if user selects Q
@@ -74,7 +85,7 @@ namespace CandyStore
             int daysSinceOpening = Helpers.GetDaysSinceOpening();
             decimal todaysProfit = 5.5m;
             bool targetAchieved = false;
-            string menu = GetMenu();
+           // string menu = GetMenu();
 
             Console.WriteLine($@"{title}
 {divide}
@@ -82,19 +93,18 @@ Today's date: {datetime}
 Days since opening: {daysSinceOpening}
 Today's profit: {todaysProfit}
 Today's target achieved {targetAchieved}
-{divide}
-{menu} ");
+{divide}");
         }
 
         // display menu
-        private static string GetMenu()
-        {
-            return "Choose one option:\n"
-           + 'V' + " to view products\n"
-           + 'A' + " to Add products:\n"
-           + 'D' + " to Delete products:\n"
-           + 'U' + " to Update products:\n"
-           + 'Q' + " to quit the program:\n";
-        }
+        //private static string GetMenu()
+        //{
+        //    return "Choose one option:\n"
+        //   + 'V' + " to view products\n"
+        //   + 'A' + " to Add products:\n"
+        //   + 'D' + " to Delete products:\n"
+        //   + 'U' + " to Update products:\n"
+        //   + 'Q' + " to quit the program:\n";
+        //}
     } // end UserInterface
 }

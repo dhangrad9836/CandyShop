@@ -22,6 +22,7 @@ namespace CandyStore
                 //we will pass in the filename from the docPath which we well split by the comma
                 using (StreamReader reader = new(Configuration.docPath))
                 {
+                    reader.ReadLine(); //this is to discard the first line
                     //this line which stores the docPath of the filesystem file is what will be returned when each line is read
                     var line = reader.ReadLine();
 
@@ -73,11 +74,17 @@ namespace CandyStore
                 // we use a bool of true at the end of the StreamWriter so products added to the file are appended and the file contents are not overwritten from everytime the program starts over
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath, true))
                 {
-                    //foreach (KeyValuePair<int, string> product in products)
-                    {
-                        // write to the text file from what the user entered from above
-                        outputFile.WriteLine($"{id}, {name}, {price}");
+                    // check if the file is empty with .BaseStream.Length == 0
+                    if(outputFile.BaseStream.Length <= 3)
+                    {   
+                        //If the file is empty
+                        //Write a line that contains the header which are the names of the properties seperated by commas
+                        outputFile.WriteLine("Id, Name, Price");
                     }
+                    //if the file is not empty then write a line which contains the products
+                    var csvLine = $"{id}, {name}, {price}";
+                        outputFile.WriteLine(csvLine);
+
                     Console.WriteLine("Products saved");
                 }
             }

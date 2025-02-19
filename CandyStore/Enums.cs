@@ -11,5 +11,10 @@
             QuitProgram
         }
 
-       
+        internal enum ProductType
+        {
+            ChcolateBar,
+            Lolipop
+        }
+    }
 }

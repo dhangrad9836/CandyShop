@@ -37,6 +37,7 @@ namespace CandyStore
                         string[] parts = line.Split(",");
 
                         //we can no longer implement a Product object as its abstract so we will identify from the csv the id and match wether its a chocolatebar or lolipop
+                        //we are comparing the parts[1] which is the ProductType to the == (int)ProductType.ChocolatBar...so we need to parse the string element and cast the ProductType (int)ProductType.ChcolateBar to compare both sides
                         if (int.Parse(parts[1]) == (int)ProductType.ChcolateBar)
                         {
                             var product = new ChocolateBar(int.Parse(parts[0]));
@@ -81,7 +82,7 @@ namespace CandyStore
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath, true))
                 {
                     // check if the file is empty with .BaseStream.Length <= 3 ....if the three header names do not exist for the csv file
-                    if(outputFile.BaseStream.Length <= 3)
+                    if(outputFile.BaseStream.Length <= 6)
                     {   
                         //If the file is empty
                         //Write a line that contains the six header which are the names of the properties seperated by commas
@@ -90,9 +91,9 @@ namespace CandyStore
                     //pass the id from line 62 into the GetProductForCsv method
                     var csvLine = product.GetProductForCsv(id);
                         outputFile.WriteLine(csvLine);
-
-                    Console.WriteLine("Products saved");
+                    
                 }
+                Console.WriteLine("Products saved");
             }
             catch (Exception ex)
             {

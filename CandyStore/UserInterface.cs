@@ -74,7 +74,8 @@ namespace CandyStore
             Console.WriteLine(divide);
             foreach (var product in products)
             {
-                Console.WriteLine($"{product.Id}, {product.Name}, {product.Price}");
+                //return all the properties of Product
+                Console.WriteLine(product.GetProductForCsv(product.Id));
             }
             Console.WriteLine(divide);
         }
@@ -125,6 +126,7 @@ Today's target achieved {targetAchieved}
                 Console.WriteLine("Cocoa %");
                 var coca = int.Parse(Console.ReadLine());
 
+                //return a ChocolateBar object
                 return new ChocolateBar()
                 {
                     Name = name,
@@ -134,9 +136,10 @@ Today's target achieved {targetAchieved}
             }
 
             //Get the percentage of coca from the user
-            Console.WriteLine("Shape %");
+            Console.WriteLine("Shape: ");
             var shape = Console.ReadLine();
 
+            //return a Lolipop object
             return new Lolipop
             {
                 Name = name,

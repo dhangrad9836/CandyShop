@@ -1,3 +1,4 @@
-﻿Id, Name, Price
-0, chcolate pie cake, 54
-1, cherry pie chocolate cake, 34
+﻿Id, Type, Name, Price, CocoaPercentage, Shape
+0, 0, chcolate cake bar, 34, 2
+1, 1, lollipop circle, 3,, oval
+2, 0, cake coco, 45, 56

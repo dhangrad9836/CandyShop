@@ -73,7 +73,7 @@ namespace CandyStore
         internal override string GetProductForCsv(int id)
         {
             //we are casting the {(int)Type} so we can get the number and not the Name of the type itself from the enum class
-            return $"{id}, {(int)Type}, {Name}, {Price}, {Shape}";
+            return $"{id}, {(int)Type}, {Name}, {Price},, {Shape}";
         }
     }
 }

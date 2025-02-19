@@ -61,13 +61,6 @@ namespace CandyStore
             // Call GetProducts method to know how many products we have so serve as our id
             var id = GetProducts().Count;
 
-            // get a product name
-            Console.WriteLine("Product name:");
-            var name = Console.ReadLine();
-
-            // get a product price
-            Console.WriteLine("Product price:");
-            var price = decimal.Parse(Console.ReadLine());
 
             try
             {

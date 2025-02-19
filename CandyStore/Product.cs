@@ -10,8 +10,14 @@ namespace CandyStore
         public decimal Price { get; set; }
         internal ProductType Type { get; set; }
 
+        //empty constructor
+        internal Product()
+        {
+            
+        }
+
         //constructor ...will be required from inheriting child classes below
-        public Product(int id)
+        internal Product(int id)
         {
             Id = id;
         }
@@ -24,9 +30,14 @@ namespace CandyStore
     {
         //properties of ChcolateBar
         internal int CocoaPercentage { get; set; }
-        
+
+        internal ChocolateBar()
+        {
+            
+        }
+
         // inherited constructor from base Product class
-        public ChocolateBar(int id) : base(id)
+        internal ChocolateBar(int id) : base(id)
         {
             Type = ProductType.ChcolateBar;
         }
@@ -37,8 +48,13 @@ namespace CandyStore
         //properties of Lolipop 
         internal string Shape { get; set; }
 
+        internal Lolipop()
+        {
+            
+        }
+
         // inherited constructor from base Product class
-        public Lolipop(int id) : base(id)
+        internal Lolipop(int id) : base(id)
         {
             Type = ProductType.Lolipop;
         }

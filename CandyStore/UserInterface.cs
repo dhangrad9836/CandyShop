@@ -96,15 +96,56 @@ Today's target achieved {targetAchieved}
 {divide}");
         }
 
-        // display menu
-        //private static string GetMenu()
-        //{
-        //    return "Choose one option:\n"
-        //   + 'V' + " to view products\n"
-        //   + 'A' + " to Add products:\n"
-        //   + 'D' + " to Delete products:\n"
-        //   + 'U' + " to Update products:\n"
-        //   + 'Q' + " to quit the program:\n";
-        //}
+        // method to Get the product information from the user, we moved the user input from the UserInterFace class in the AddProduct() and moved it here
+        private static Product GetProductInput()
+        {
+            // get a product name
+            Console.WriteLine("Product name:");
+            var name = Console.ReadLine();
+
+            // get a product price
+            Console.WriteLine("Product price:");
+            var price = decimal.Parse(Console.ReadLine());
+
+            //this will prompt the user to select either a lolipop or chocolate bar
+            var type = AnsiConsole.Prompt(
+                new SelectionPrompt<ProductType>()
+                .Title("Product Type: ")
+                .AddChoices(
+                    ProductType.Lolipop,
+                    ProductType.ChcolateBar)
+                );
+
+            //check if it a chocolate bar or lolipop and return that product, Lolipop or chocolatebar
+            if(type == ProductType.ChcolateBar)
+            {
+                //Get the percentage of coca from the user
+                Console.WriteLine("Cocoa %");
+                var coca = int.Parse(Console.ReadLine());
+
+                return new ChocolateBar()
+                {
+                    Name = name,
+                    Price = price,
+                    CocoaPercentage = coca
+                };
+            }
+
+            //Get the percentage of coca from the user
+            Console.WriteLine("Shape %");
+            var shape = Console.ReadLine();
+
+            return new Lolipop
+            {
+                Name = name,
+                Price = price,
+                Shape = shape
+            };
+        } //end GetProductInput
+
+
     } // end UserInterface
-}
+}   // end CandyStore
+
+
+

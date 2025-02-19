@@ -38,6 +38,7 @@ namespace CandyStore
                 switch (usersChoice)
                 {
                     case MainMenuOptions.AddProduct:
+                        //trigger the GetProductInput() and pass the product Type and its data to the AddProduct() below
                         var product = GetProductInput();
                         productsController.AddProduct(product);
                         break;

@@ -71,11 +71,11 @@ namespace CandyStore
                     if(outputFile.BaseStream.Length <= 3)
                     {   
                         //If the file is empty
-                        //Write a line that contains the three header which are the names of the properties seperated by commas
+                        //Write a line that contains the six header which are the names of the properties seperated by commas
                         outputFile.WriteLine("Id, Type, Name, Price, CocoaPercentage, Shape");
                     }
-                    //if the file is not empty then write a line which contains the products
-                    var csvLine = $"{id}, {name}, {price}";
+                    //pass the id from line 62 into the GetProductForCsv method
+                    var csvLine = product.GetProductForCsv(id);
                         outputFile.WriteLine(csvLine);
 
                     Console.WriteLine("Products saved");

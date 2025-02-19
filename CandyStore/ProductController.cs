@@ -30,6 +30,8 @@ namespace CandyStore
                     //while loop
                     while (line != null)
                     {
+                        //THIS NEEDS TO BE MODIFIED BECAUSE WE CANNOT IMPLEMENT A PRODUCT OBJECT AS IT IS NOW AN ABSTRACT CLASS
+
                         //pass inside a comma to split the string each time a comma is found and return back into an array by using the .Split method
                         string[] parts = line.Split(",");
 

@@ -38,7 +38,8 @@ namespace CandyStore
                 switch (usersChoice)
                 {
                     case MainMenuOptions.AddProduct:
-                        productsController.AddProduct();
+                        var product = GetProductInput();
+                        productsController.AddProduct(product);
                         break;
                     case MainMenuOptions.DeleteProduct:
                         productsController.DeleteProduct("User chose D");

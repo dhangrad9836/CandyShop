@@ -56,7 +56,7 @@ namespace CandyStore
         } // end GetProducts()
         
         // add an individual product from the user input
-        internal void AddProduct()
+        internal void AddProduct(Product product)
         {
             // Call GetProducts method to know how many products we have so serve as our id
             var id = GetProducts().Count;
@@ -72,7 +72,7 @@ namespace CandyStore
                     {   
                         //If the file is empty
                         //Write a line that contains the three header which are the names of the properties seperated by commas
-                        outputFile.WriteLine("Id, Name, Price");
+                        outputFile.WriteLine("Id, Type, Name, Price, CocoaPercentage, Shape");
                     }
                     //if the file is not empty then write a line which contains the products
                     var csvLine = $"{id}, {name}, {price}";

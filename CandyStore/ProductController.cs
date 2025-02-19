@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static CandyStore.Enums;
 
 namespace CandyStore
 {
@@ -35,14 +36,24 @@ namespace CandyStore
                         //pass inside a comma to split the string each time a comma is found and return back into an array by using the .Split method
                         string[] parts = line.Split(",");
 
-                        //create a new Product that is being created from the text file
-                        //pass the id to the Product constructor and Parse it into an integer to the Product constructor
-                        var product = new Product(int.Parse(parts[0]));
-                        product.Name = parts[1];
-                        product.Price = decimal.Parse(parts[2]); //parse into a decimal
+                        //we can no longer implement a Product object as its abstract so we will identify from the csv the id and match wether its a chocolatebar or lolipop
+                        if (int.Parse(parts[1]) == (int)ProductType.ChcolateBar)
+                        {
+                            var product = new ChocolateBar(int.Parse(parts[0]));
+                            product.Name = parts[2];
+                            product.Price = decimal.Parse(parts[3]);
+                            product.CocoaPercentage = int.Parse(parts[4]); // this is element 4 which is where cocoapercentage is in the csv file
+                            products.Add(product); //add the product back to the products list
+                        }
+                        else
+                        {
+                            var product = new Lolipop(int.Parse(parts[0]));
+                            product.Name = parts[2];
+                            product.Price = decimal.Parse(parts[3]);
+                            product.Shape = parts[5]; //this is elemet 5 which is where shape is in the csv file
+                            products.Add(product); //add the product back to the products list
+                        }
                         
-                        //add each line thats being read in from the docpath file to the products list
-                        products.Add(product);
                         line = reader.ReadLine();
                     }
                 }

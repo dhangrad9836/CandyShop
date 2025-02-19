@@ -36,7 +36,8 @@ namespace CandyStore
 
         internal ChocolateBar()
         {
-            
+            //assign the ProductType when empty constructor is called
+            Type = ProductType.ChcolateBar;
         }
 
         // inherited constructor from base Product class
@@ -59,7 +60,8 @@ namespace CandyStore
 
         internal Lolipop()
         {
-            
+            //assign the ProductType when empty constructor is called
+            Type = ProductType.Lolipop;
         }
 
         // inherited constructor from base Product class

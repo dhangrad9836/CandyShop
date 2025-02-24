@@ -55,10 +55,11 @@ namespace CandyStore
         // returning a chocolate product and similar to the lolipop
         internal override string GetProductForPanel()
         {
-            return $@"Id: {Id}
-            Type: {Type}
-            Name: {Name}
-            Coca Percentage: {CocoaPercentage}";
+              return $@"Id: {Id}
+ Type: {Type}
+ Name: {Name}
+ Price: {Price}
+ Coca Percentage: {CocoaPercentage}";
         }
     }// end ChocolateBar class
 
@@ -88,10 +89,11 @@ namespace CandyStore
 
         internal override string GetProductForPanel()
         {
-            return $@"Id: {Id}
-            Type: {Type}
-            Name: {Name}
-            Shape: {Shape}";
+              return $@"Id: {Id}
+Type: {Type}
+Name: {Name}
+Price: {Price}
+Shape: {Shape}";
         }
     }
 }

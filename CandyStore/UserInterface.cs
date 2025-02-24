@@ -51,8 +51,8 @@ namespace CandyStore
                         ViewProduct(products);
                         break;
                     case MainMenuOptions.ViewSingleProduct:
-                        var productChoice = GetProductsChoice();
-                        ViewSingleProductChoice(productChoice);
+                        var productChoice = GetProductsChoice();    //GetProductsChoice is returning a type Product in productChoice variable
+                        ViewSingleProductChoice(productChoice);     //pass the productChoice to ViewSingleProductChoice(productChoice)
                         break;
                     case MainMenuOptions.UpdateProduct:
                         productsController.UpdateProduct("User chose U");
@@ -74,7 +74,7 @@ namespace CandyStore
             } // end while loop
         }
 
-        // takes in a Product productChoice
+        // takes in a type Product productChoice
         private static void ViewSingleProductChoice(Product productChoice)
         {
             //create an ansiconsole heading after GetProductForPanel() is executed
@@ -83,6 +83,10 @@ namespace CandyStore
             panel.Padding = new Padding(2, 2, 2, 2);
 
             AnsiConsole.Write(panel);
+
+            Console.WriteLine("Press Any Key to Return to Menu");
+            Console.ReadLine();
+            Console.Clear();
         }
 
         

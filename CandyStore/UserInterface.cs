@@ -50,7 +50,7 @@ namespace CandyStore
                         ViewProduct(products);
                         break;
                     case MainMenuOptions.ViewSingleProduct:
-                        var productChoice = productsController.GetProductsChoice();
+                        var productChoice = GetProductsChoice();
                         ViewSingleProductChoice(productChoice);
                         break;
                     case MainMenuOptions.UpdateProduct:
@@ -71,6 +71,23 @@ namespace CandyStore
                 Console.Clear();
 
             } // end while loop
+        }
+
+        private static void ViewSingleProductChoice(object productChoice)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static object GetProductsChoice()
+        {
+            var productsControlelr = new ProductController();
+            var products = productsControlelr.GetProducts(); //return a list of products
+            var productsArray = products.Select(x => x.Name).ToArray(); //store names in an array of strings
+            var option = AnsiConsole.Prompt(new SelectionPrompt<string>()
+                .Title("Choose Product")
+                .AddChoices(productsArray)); //in the .AddChoice prompt box will display a list of Product names using the .AddChoices
+
+            var product = products.Single(x => x.Name == option);   //we are using a .Single LINQ method where x.Name == option (products list equals the users selection)
         }
 
         internal static void ViewProduct(List<Product> products)

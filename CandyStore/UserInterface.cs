@@ -49,6 +49,10 @@ namespace CandyStore
                         var products = productsController.GetProducts();
                         ViewProduct(products);
                         break;
+                    case MainMenuOptions.ViewSingleProduct:
+                        var productChoice = productsController.GetProductsChoice();
+                        ViewSingleProductChoice(productChoice);
+                        break;
                     case MainMenuOptions.UpdateProduct:
                         productsController.UpdateProduct("User chose U");
                         break;

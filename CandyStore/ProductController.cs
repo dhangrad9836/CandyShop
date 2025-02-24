@@ -110,13 +110,15 @@ namespace CandyStore
                 // open the file from the .docPath
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
                 {
+                    //Everytime data is seeded we will add a new header
                     //Write a line that contains the six header which are the names of the properties seperated by commas
                     outputFile.WriteLine("Id, Type, Name, Price, CocoaPercentage, Shape");
                     {   foreach (var product in products)
                         {
-                            //pass the id from line 62 into the GetProductForCsv method
+                            //and new line will be written to the csv file
+                            //pass the id from line 62 into the GetProductForCsv 
                             var csvLine = product.GetProductForCsv(product.Id);
-                            outputFile.WriteLine(csvLine);
+                            outputFile.WriteLine(csvLine);  //the details are printed once we pass in the csvLine
                         }
                         
                     }

@@ -5,6 +5,7 @@
         internal enum MainMenuOptions
         {
             ViewProducts,
+            ViewSingleProduct,
             AddProduct,
             DeleteProduct,
             UpdateProduct,

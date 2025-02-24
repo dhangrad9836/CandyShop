@@ -73,6 +73,7 @@ namespace CandyStore
         internal override string GetProductForCsv(int id)
         {
             //we are casting the {(int)Type} so we can get the number and not the Name of the type itself from the enum class
+            //we also need a second comma next to {Price},, so ensure we are not out of bounds for index values because {Shape} is number 5 when we access it in the GetProducts() of the ProductController it's parts.Shape = parts[5]...so this extra comma makes {Shape} here index 5 and not 4
             return $"{id}, {(int)Type}, {Name}, {Price},, {Shape}";
         }
     }

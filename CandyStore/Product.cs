@@ -25,7 +25,7 @@ namespace CandyStore
         //abstract method which child classes will implement
         internal abstract string GetProductForCsv(int id);
         //we later on made this abstract method when we added the new method from the ViewSingleProductChoice() inside the userInterface class. We autogenereted an abstract method which was placed inside this Product class. And then afterwards all the children classes will have to implement this new abstract method
-        internal abstract string GetProductForPanel();
+        internal abstract string GetProductForPanel();  //will output a string of Product information.
     }//end product class
 
     // ChocolateBar class

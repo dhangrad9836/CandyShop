@@ -28,6 +28,7 @@ namespace CandyStore
                     .Title("What would like to do?")
                     .AddChoices(
                         MainMenuOptions.ViewProducts,
+                        MainMenuOptions.ViewSingleProduct,
                         MainMenuOptions.AddProduct,
                         MainMenuOptions.UpdateProduct,
                         MainMenuOptions.DeleteProduct,
@@ -73,14 +74,20 @@ namespace CandyStore
             } // end while loop
         }
 
-        // note that signature is of a Product
-        private static Product ViewSingleProductChoice(Product productChoice)
+        // takes in a Product productChoice
+        private static void ViewSingleProductChoice(Product productChoice)
         {
-            var panel = new Panel(productChoice.GetProductForPanel())
+            //create an ansiconsole heading after GetProductForPanel() is executed
+            var panel = new Panel(productChoice.GetProductForPanel());
+            panel.Header = new PanelHeader("Product Info");
+            panel.Padding = new Padding(2, 2, 2, 2);
+
+            AnsiConsole.Write(panel);
         }
 
-        //return a single product
-        private static object GetProductsChoice()
+        
+        //Note that signature is changed to type Product as we are returning a Product
+        private static Product GetProductsChoice()
         {
             var productsControlelr = new ProductController();
             var products = productsControlelr.GetProducts(); //return a list of products
@@ -90,6 +97,8 @@ namespace CandyStore
                 .AddChoices(productsArray)); //in the .AddChoice prompt box will display a list of Product names using the .AddChoices
 
             var product = products.Single(x => x.Name == option);   //we are using a .Single LINQ method where x.Name == option (products list equals the users selection)
+
+            return product;
         }
 
         internal static void ViewProduct(List<Product> products)

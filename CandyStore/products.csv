@@ -1,4 +1,12 @@
-﻿Id, Type, Name, Price, CocoaPercentage, Shape
-0, 0, chcolate cake bar, 34, 2
-1, 1, lollipop circle, 3,, oval
-2, 0, cake coco, 45, 56
+Id, Type, Name, Price, CocoaPercentage, Shape
+1, 0, Dark Delight, 2.99, 85
+2, 0, Milk Marvel, 2.49, 50
+3, 0, White Wonder, 2.79, 30
+4, 0, Hazelnut Heaven, 3.29, 70
+5, 0, Caramel Crunch, 3.49, 60
+6, 1, Cherry Swirl, 1.49,, Round
+7, 1, Blueberry Blast, 1.59,, Star
+8, 1, Grape Twirl, 1.39,, Spiral
+9, 1, Lemon Pop, 1.69,, Heart
+10, 1, Strawberry Twist, 1.79,, Oval
+11, 1, Cherry pop, 2,, short

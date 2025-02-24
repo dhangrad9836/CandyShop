@@ -1,38 +1,30 @@
 ﻿namespace CandyStore;
 
 internal class DataSeed
-{
+{    
 
-    //seed data will be processed to alist
-    string[] candyNames = { "Rainbow Lollipop", "Cotton Candy Clouds", "Choco-Caramel", "Gummy Bear Bonanza", "Minty Chocolate Truffles", "Jellybean Jamboree", "Fruity Taffy Twists", "Sour Patch Surprise", "Crispy Peanut Butter Cups", "Rocky Candy Crystals" };
-
-    public void SeedData()
+    internal static void SeedData()
     {
-        ////create a list of type <Product>()
-        //var products = new List<Product>
-        //{
-        //    //note remember that the Product has three fields: Id, Name, Price
-        //    //so here we have the product id as Product(1), the name is added from the candyNames array above by candyNames[0] ...accessess each individual element
-        //    //and price is manually added here Price = 10m
+        List<Product> products = new List<Product>
+            {
+                // 5 ChocolateBar objects
+                new ChocolateBar(1) { Name = "Dark Delight", Price = 2.99m, CocoaPercentage = 85 },
+                new ChocolateBar(2) { Name = "Milk Marvel", Price = 2.49m, CocoaPercentage = 50 },
+                new ChocolateBar(3) { Name = "White Wonder", Price = 2.79m, CocoaPercentage = 30 },
+                new ChocolateBar(4) { Name = "Hazelnut Heaven", Price = 3.29m, CocoaPercentage = 70 },
+                new ChocolateBar(5) { Name = "Caramel Crunch", Price = 3.49m, CocoaPercentage = 60 },
 
-        //    //new Product(1) { Name = candyNames[0], Price = 10m},
-        //    //new Product(2) { Name = candyNames[1], Price = 10m},
-        //    //new Product(3) { Name = candyNames[2], Price = 10m},
-        //    //new Product(4) { Name = candyNames[3], Price = 10m},
-        //    //new Product(5) { Name = candyNames[4], Price = 10m},
-        //    //new Product(6) { Name = candyNames[5], Price = 10m},
-        //    //new Product(7) { Name = candyNames[6], Price = 10m},
-        //    //new Product(8) { Name = candyNames[7], Price = 10m},
-        //    //new Product(9) { Name = candyNames[8], Price = 10m},
-        //    //new Product(10) { Name = candyNames[9], Price = 10m},
-        //};
+                // 5 Lollipop objects
+                new Lolipop(6) { Name = "Cherry Swirl", Price = 1.49m, Shape = "Round" },
+                new Lolipop(7) { Name = "Blueberry Blast", Price = 1.59m, Shape = "Star" },
+                new Lolipop(8) { Name = "Grape Twirl", Price = 1.39m, Shape = "Spiral" },
+                new Lolipop(9) { Name = "Lemon Pop", Price = 1.69m, Shape = "Heart" },
+                new Lolipop(10) { Name = "Strawberry Twist", Price = 1.79m, Shape = "Oval" }
+            };
 
-        ////instantiate a new ProductController() object so we can add the Product from above to the controller
-        //var productController = new ProductController();
+        var productsController = new ProductController();
 
-        ////add the products from the List<Product>() above
-        //productController.AddProducts(products);
-
+        productsController.AddProducts(products);
 
 
     } // end SeedData()

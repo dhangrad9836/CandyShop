@@ -73,7 +73,7 @@ namespace CandyStore
         internal void AddProduct(Product product)
         {
             // Call GetProducts method to know how many products we have so serve as our id
-            var id = GetProducts().Count;
+            var id = GetProducts().Count + 1;   //we added +1 to the count so our index will not be duplicated whenever we add a new product
 
 
             try
@@ -110,10 +110,13 @@ namespace CandyStore
                 // open the file from the .docPath
                 using (StreamWriter outputFile = new StreamWriter(Configuration.docPath))
                 {
+                    //Write a line that contains the six header which are the names of the properties seperated by commas
+                    outputFile.WriteLine("Id, Type, Name, Price, CocoaPercentage, Shape");
                     {   foreach (var product in products)
-                        {                            
-                            //write to the file from the docPath, each (product: Id, Name, Price)
-                            outputFile.WriteLine($"{product.Id}, {product.Name}, {product.Price}");
+                        {
+                            //pass the id from line 62 into the GetProductForCsv method
+                            var csvLine = product.GetProductForCsv(product.Id);
+                            outputFile.WriteLine(csvLine);
                         }
                         
                     }

@@ -52,10 +52,13 @@ namespace CandyStore
             return $"{id}, {(int)Type}, {Name}, {Price}, {CocoaPercentage}";
         }
 
-        //we later on made this abstract method when we added the new method from the ViewSingleProductChoice() inside the userInterface class. We autogenereted an abstract method which was placed inside this Product class.
+        // returning a chocolate product and similar to the lolipop
         internal override string GetProductForPanel()
         {
-            throw new NotImplementedException();
+            return $@"Id: {Id}
+            Type: {Type}
+            Name: {Name}
+            Coca Percentage: {CocoaPercentage}";
         }
     }// end ChocolateBar class
 
@@ -81,6 +84,14 @@ namespace CandyStore
             //we are casting the {(int)Type} so we can get the number and not the Name of the type itself from the enum class
             //we also need a second comma next to {Price},, so ensure we are not out of bounds for index values because {Shape} is number 5 when we access it in the GetProducts() of the ProductController it's parts.Shape = parts[5]...so this extra comma makes {Shape} here index 5 and not 4
             return $"{id}, {(int)Type}, {Name}, {Price},, {Shape}";
+        }
+
+        internal override string GetProductForPanel()
+        {
+            return $@"Id: {Id}
+            Type: {Type}
+            Name: {Name}
+            Shape: {Shape}";
         }
     }
 }

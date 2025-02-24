@@ -24,8 +24,8 @@ namespace CandyStore
 
         //abstract method which child classes will implement
         internal abstract string GetProductForCsv(int id);
-        
-
+        //we later on made this abstract method when we added the new method from the ViewSingleProductChoice() inside the userInterface class. We autogenereted an abstract method which was placed inside this Product class. And then afterwards all the children classes will have to implement this new abstract method
+        internal abstract string GetProductForPanel();
     }//end product class
 
     // ChocolateBar class
@@ -50,6 +50,12 @@ namespace CandyStore
         {
             //we are casting the {(int)Type} so we can get the number and not the Name of the type itself from the enum class
             return $"{id}, {(int)Type}, {Name}, {Price}, {CocoaPercentage}";
+        }
+
+        //we later on made this abstract method when we added the new method from the ViewSingleProductChoice() inside the userInterface class. We autogenereted an abstract method which was placed inside this Product class.
+        internal override string GetProductForPanel()
+        {
+            throw new NotImplementedException();
         }
     }// end ChocolateBar class
 

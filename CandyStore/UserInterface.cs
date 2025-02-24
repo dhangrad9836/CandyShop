@@ -73,11 +73,13 @@ namespace CandyStore
             } // end while loop
         }
 
-        private static void ViewSingleProductChoice(object productChoice)
+        // note that signature is of a Product
+        private static Product ViewSingleProductChoice(Product productChoice)
         {
-            throw new NotImplementedException();
+            var panel = new Panel(productChoice.GetProductForPanel())
         }
 
+        //return a single product
         private static object GetProductsChoice()
         {
             var productsControlelr = new ProductController();

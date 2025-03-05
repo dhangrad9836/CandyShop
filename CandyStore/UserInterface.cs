@@ -52,10 +52,12 @@ namespace CandyStore
                         ViewProduct(products);
                         break;
                     case MainMenuOptions.ViewSingleProduct:
-                        var productChoice = GetProductsChoice();    //GetProductsChoice is returning a type Product in productChoice variable
+                        var productChoice = GetProductsChoice();    //GetProductsChoice is returning a list of products to productChoice variable
                         ViewSingleProductChoice(productChoice);     //pass the productChoice to ViewSingleProductChoice(productChoice)
                         break;
                     case MainMenuOptions.UpdateProduct:
+                        var productToUpdate = GetProductsChoice();  //GetProductsChoice is returning a list of products to productToUpdate variable
+                        var updatedProduct = GetProductUpdateInput(productToUpdate);  //Created new GetProductUpdateInput method below here which is a Product Object
                         productsController.UpdateProduct("User chose U");
                         break;
                     case MainMenuOptions.QuitProgram:
@@ -75,6 +77,14 @@ namespace CandyStore
             } // end while loop
         }
 
+        private static Product GetProductUpdateInput(Product product)
+        {
+            Console.WriteLine("You'll be prompted with the choice to update each property. Press enter for Yes and N for no.");
+            // we access the Name property below since we are using a Product object which has the Name property and using a ternary operator
+            //if the selection to update the name is true then the new name will be asked if not then the product name will be maintained or stay the same
+            product.Name = AnsiConsole.Confirm("Update name?") ? AnsiConsole.Ask<string>("Product's new name:") : product.Name;
+        }
+
         // takes in a type Product productChoice
         private static void ViewSingleProductChoice(Product productChoice)
         {
@@ -91,7 +101,7 @@ namespace CandyStore
         }
 
         
-        //return back to user a list of the products avaialbe
+        //return back to user a list of the products available
         private static Product GetProductsChoice()
         {
             var productsControlelr = new ProductController();

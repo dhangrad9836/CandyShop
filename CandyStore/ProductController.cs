@@ -132,7 +132,7 @@ namespace CandyStore
             }
         } //end AddProducts()
 
-        //pass in the product to be deleted
+        //pass in the product object with all the properties to be deleted
         internal void DeleteProduct(Product product)
         {
             //get all products
@@ -144,9 +144,16 @@ namespace CandyStore
             AddProducts(updatedProducts);
         }
 
-        internal void UpdateProduct(string message)
+        //now we take in a Product object with all the properties that we updated
+        internal void UpdateProduct(Product product)
         {
-            Console.WriteLine(message);
+            //get all products
+            var products = GetProducts();
+
+            var updatedProducts = products.Where(p => p.Id != product.Id).ToList(); //only select the product id that were not updated
+            updatedProducts.Add(product);   //add all the products back to the list
+
+            AddProducts(updatedProducts);
         }
 
        

@@ -58,7 +58,7 @@ namespace CandyStore
                     case MainMenuOptions.UpdateProduct:
                         var productToUpdate = GetProductsChoice();  //GetProductsChoice is returning a list of products to productToUpdate variable
                         var updatedProduct = GetProductUpdateInput(productToUpdate);  //Created new GetProductUpdateInput method below here which is a Product Object
-                        productsController.UpdateProduct("User chose U");
+                        productsController.UpdateProduct(updatedProduct);
                         break;
                     case MainMenuOptions.QuitProgram:
                         menuMessage = "Goodbye"; //will be displayed at bottom of program
@@ -83,7 +83,51 @@ namespace CandyStore
             // we access the Name property below since we are using a Product object which has the Name property and using a ternary operator
             //if the selection to update the name is true then the new name will be asked if not then the product name will be maintained or stay the same
             product.Name = AnsiConsole.Confirm("Update name?") ? AnsiConsole.Ask<string>("Product's new name:") : product.Name;
-        }
+            //update the price or remain the same
+            product.Price = AnsiConsole.Confirm("Update price?") ? AnsiConsole.Ask<decimal>("Product's new name:") : product.Price;
+
+            //update the type of Category
+            var updateType = AnsiConsole.Confirm("Update category?");
+
+            //check
+            if (updateType)
+            {   
+                //have user select the type of product
+                var type = AnsiConsole.Prompt(
+                    new SelectionPrompt<ProductType>()
+                    .Title("Product Type:")
+                    .AddChoices(
+                        ProductType.ChcolateBar,
+                        ProductType.Lolipop));
+                if (type == ProductType.ChcolateBar)
+                {   //if product is chocolatebar the get the cocoa percentage
+                    Console.WriteLine("Cocoa %");
+                    var coca = int.Parse(Console.ReadLine());
+
+                    //add all the users updated values from above to the new ChocolateBar object below
+                    //pass in the id of the chocolatebar to update the type
+                    return new ChocolateBar(product.Id)
+                    {
+                        Name = product.Name,
+                        Price = product.Price,
+                        CocoaPercentage = coca
+                    };
+                }
+                //if it's not a chocolatebar the it must be a lolipop. Store the values in a Lolipop object
+                Console.WriteLine("Shape: ");
+                var shape = Console.ReadLine();
+
+                //pass in the id of the Lolipop to update the type
+                return new Lolipop(product.Id)
+                {
+                    Name = product.Name,
+                    Price = product.Price,
+                    Shape = shape
+                };
+            }
+            return product;
+
+        } //end GetProductUpdateInput()
 
         // takes in a type Product productChoice
         private static void ViewSingleProductChoice(Product productChoice)

@@ -44,7 +44,8 @@ namespace CandyStore
                         productsController.AddProduct(product);
                         break;
                     case MainMenuOptions.DeleteProduct:
-                        productsController.DeleteProduct("User chose D");
+                        var productToDelete = GetProductsChoice();  //user will select which product to delete
+                        productsController.DeleteProduct(productToDelete);  //pass in the product to delete to the DeleteProduct method
                         break;
                     case MainMenuOptions.ViewProducts:
                         var products = productsController.GetProducts();
@@ -90,7 +91,7 @@ namespace CandyStore
         }
 
         
-        //Note that signature is changed to type Product as we are returning a Product
+        //return back to user a list of the products avaialbe
         private static Product GetProductsChoice()
         {
             var productsControlelr = new ProductController();
@@ -136,6 +137,7 @@ Today's target achieved {targetAchieved}
         }
 
         // method to Get the product information from the user, we moved the user input from the UserInterFace class in the AddProduct() and moved it here
+        // and is of a type Product
         private static Product GetProductInput()
         {
             // get a product name

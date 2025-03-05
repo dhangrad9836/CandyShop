@@ -132,9 +132,16 @@ namespace CandyStore
             }
         } //end AddProducts()
 
-        internal void DeleteProduct(string message)
+        //pass in the product to be deleted
+        internal void DeleteProduct(Product product)
         {
-            Console.WriteLine(message);
+            //get all products
+            var products = GetProducts();
+            //update or store all the products in updatedProducts variable as long as it does not equal the id of the product being passed in
+            var updatedProducts = products.Where(p => p.Id != product.Id).ToList();
+
+            //add back the updatedProducts list
+            AddProducts(updatedProducts);
         }
 
         internal void UpdateProduct(string message)
